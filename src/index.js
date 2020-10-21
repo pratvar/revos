@@ -55,30 +55,32 @@ function Data({vin, tripId}) {
     return (
         <div className="data">
             <div className="main">
-                <div className="pair">
-                    <span className="key material-icons">place</span>
-                    <span className="value">{data.distance ? data.distance : "N/A"}</span>
-                    <div className="tooltip">Distance</div>
+                <div className="info">
+                    <div className="pair">
+                        <span className="key material-icons">place</span>
+                        <span className="value">{data.distance ? data.distance : "N/A"}</span>
+                        <div className="tooltip">Distance</div>
+                    </div>
+                    <div className="pair">
+                        <span className="key material-icons">power</span>
+                        <span className="value">{data.energy ? data.energy : "N/A"}</span>
+                        <div className="tooltip">Energy Consumption</div>
+                    </div>
+                    <div className="pair">
+                        <span className="key material-icons">speed</span>
+                        <span className="value">{data.maxGpsSpeed ? data.maxGpsSpeed : "N/A"}</span>
+                        <div className="tooltip">Max Speed (GPS)</div>
+                    </div>
                 </div>
-                <div className="pair">
-                    <span className="key material-icons">power</span>
-                    <span className="value">{data.energy ? data.energy : "N/A"}</span>
-                    <div className="tooltip">Energy Consumption</div>
+                <div className="RPM">
+                    <div className="RPMval">{data.minWheelRPM}</div><span>Min RPM</span>
+                    <div className="RPMval">{data.maxWheelRPM}</div><span>Max RPM</span>
                 </div>
-                <div className="pair">
-                    <span className="key material-icons">speed</span>
-                    <span className="value">{data.maxGpsSpeed ? data.maxGpsSpeed : "N/A"}</span>
-                    <div className="tooltip">Max Speed (GPS)</div>
-                </div>
-            </div>
-            <div className="RPM">
-                Min RPM: {data.minWheelRPM}<br/>
-                Max RPM: {data.maxWheelRPM}
             </div>
             <div className="voltage">
                 Battery Voltage Fluctuation:
                 <div className="linechart">
-
+                    
                 </div>
             </div>
         </div>
