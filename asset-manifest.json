@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/revos/static/css/main.1f5c010e.chunk.css",
-    "main.js": "/revos/static/js/main.2544ec19.chunk.js",
-    "main.js.map": "/revos/static/js/main.2544ec19.chunk.js.map",
+    "main.css": "/revos/static/css/main.db645c5d.chunk.css",
+    "main.js": "/revos/static/js/main.d748acab.chunk.js",
+    "main.js.map": "/revos/static/js/main.d748acab.chunk.js.map",
     "runtime-main.js": "/revos/static/js/runtime-main.9c0ed1a1.js",
     "runtime-main.js.map": "/revos/static/js/runtime-main.9c0ed1a1.js.map",
     "static/js/2.2fdeca9b.chunk.js": "/revos/static/js/2.2fdeca9b.chunk.js",
     "static/js/2.2fdeca9b.chunk.js.map": "/revos/static/js/2.2fdeca9b.chunk.js.map",
     "index.html": "/revos/index.html",
-    "precache-manifest.08f96061e9b44008718e0551d78c8707.js": "/revos/precache-manifest.08f96061e9b44008718e0551d78c8707.js",
+    "precache-manifest.c5c4e4b5148f3984efcc91646731d995.js": "/revos/precache-manifest.c5c4e4b5148f3984efcc91646731d995.js",
     "service-worker.js": "/revos/service-worker.js",
-    "static/css/main.1f5c010e.chunk.css.map": "/revos/static/css/main.1f5c010e.chunk.css.map",
+    "static/css/main.db645c5d.chunk.css.map": "/revos/static/css/main.db645c5d.chunk.css.map",
     "static/js/2.2fdeca9b.chunk.js.LICENSE.txt": "/revos/static/js/2.2fdeca9b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9c0ed1a1.js",
     "static/js/2.2fdeca9b.chunk.js",
-    "static/css/main.1f5c010e.chunk.css",
-    "static/js/main.2544ec19.chunk.js"
+    "static/css/main.db645c5d.chunk.css",
+    "static/js/main.d748acab.chunk.js"
   ]
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8180e9a31b3d93632831e09f39e0d313",
+    "revision": "742a55b16397e372217de12aa93b2b8f",
     "url": "/revos/index.html"
   },
   {
-    "revision": "dbbcceb71f05f9a48d31",
-    "url": "/revos/static/css/main.1f5c010e.chunk.css"
+    "revision": "9bffb19d2feb27d3565f",
+    "url": "/revos/static/css/main.db645c5d.chunk.css"
   },
   {
     "revision": "481ed3edc96da65df3fa",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/revos/static/js/2.2fdeca9b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "dbbcceb71f05f9a48d31",
-    "url": "/revos/static/js/main.2544ec19.chunk.js"
+    "revision": "9bffb19d2feb27d3565f",
+    "url": "/revos/static/js/main.d748acab.chunk.js"
   },
   {
     "revision": "bf29f62ce3f02ea6f70a",
