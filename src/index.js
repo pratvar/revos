@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css';
 import obj from './data.json'
+import * as d3 from 'd3';
 
 const data = obj.trip
 
@@ -30,8 +31,10 @@ function Select({vin, setVin, tripId, setTripId}) {
                             <select name="tripId" id="tripId" value={tripId} onChange={e => setTripId(e.target.value)}>
                                 <option value="Select Trip" selected disabled>Select Trip</option>
                                 {(() => { 
-                                    if(vin === "VEHICLE_UI") return vehicle1.map((cur,i) => <option key={i} value={cur.tripId}>{cur.tripId}</option>);
-                                    if(vin === "AIMA_OFFICE") return vehicle2.map((cur,i) => <option key={i} value={cur.tripId}>{cur.tripId}</option>);
+                                    if(vin === "VEHICLE_UI") 
+                                        return vehicle1.map((cur,i) => <option key={i} value={cur.tripId}>{cur.tripId}</option>);
+                                    if(vin === "AIMA_OFFICE") 
+                                        return vehicle2.map((cur,i) => <option key={i} value={cur.tripId}>{cur.tripId}</option>);
                                     })()
                                 }
                             </select>
@@ -44,43 +47,85 @@ function Select({vin, setVin, tripId, setTripId}) {
     )
 }
 
-function Data({vin, tripId}) {
+function Data({vin, tripId, data}) {
+    
+    const linechart = useRef(null);
 
+    useEffect(() => {
+        const chart = d3.select(linechart.current);
+        
+        // clear previous
+        chart.selectAll('circle').remove();
+        chart.selectAll('g').remove();
+
+        if(tripId !== "Select Trip" && data.batteryVoltageAdc !== []) {
+
+            const padding = 30;
+            const height = 200;
+            const width = 400;
+            chart.attr('height', height+padding).attr('width', width+padding)
+
+            const fluctuation = data.batteryVoltageAdc
+
+            // set scale and axes
+            const xScale = d3.scaleLinear().domain([0, fluctuation.length]).range([padding, width+padding]);
+            const yScale = d3.scaleLinear().domain([Math.floor(Math.min(...fluctuation))-3, Math.ceil(Math.max(...fluctuation))+3]).range([height, padding/2]);
+            const xAxis = d3.axisBottom().scale(xScale).tickValues([]);
+            const yAxis = d3.axisLeft().scale(yScale);
+            console.log(fluctuation)
+            // append circles
+            chart.selectAll('circle')
+            .data(fluctuation)
+            .enter()
+            .append('circle')
+            .attr('r', 3)
+            .attr('cx', (d,i) => xScale(i) + 5)
+            .attr('cy', d => yScale(d) + padding/2)
+            .attr('fill', 'cyan');
+
+            // append axes
+            chart.append('g')
+                 .call(xAxis)
+                 .attr('transform', `translate(-2, ${height+padding/2})`)
+            chart.append('g')
+                 .call(yAxis)
+                 .attr('transform', `translate(${padding-2}, ${padding/2})`)
+        }
+    });
+
+    const display = value => value ? value : "-";
+    
     if(tripId === "Select Trip") return null; // TODO: design blank dashboard
     
-    let arr;
-    vin === "VEHICLE_UI" ? arr = vehicle1 : arr = vehicle2;
-    let i = arr.map(cur => cur.tripId).indexOf(tripId);
-    let data = arr[i];
     return (
         <div className="data">
             <div className="main">
                 <div className="info">
                     <div className="pair">
                         <span className="key material-icons">place</span>
-                        <span className="value">{data.distance ? data.distance : "N/A"}</span>
+                        <span className="value">{display(data.distance)}</span>
                         <div className="tooltip">Distance</div>
                     </div>
                     <div className="pair">
                         <span className="key material-icons">power</span>
-                        <span className="value">{data.energy ? data.energy : "N/A"}</span>
+                        <span className="value">{display(data.energy)}</span>
                         <div className="tooltip">Energy Consumption</div>
                     </div>
                     <div className="pair">
                         <span className="key material-icons">speed</span>
-                        <span className="value">{data.maxGpsSpeed ? data.maxGpsSpeed : "N/A"}</span>
+                        <span className="value">{display(data.maxGpsSpeed)}</span>
                         <div className="tooltip">Max Speed (GPS)</div>
                     </div>
                 </div>
                 <div className="RPM">
-                    <div className="RPMval">{data.minWheelRPM}</div><span>Min RPM</span>
-                    <div className="RPMval">{data.maxWheelRPM}</div><span>Max RPM</span>
+                    <div className="RPMval">{display(data.minWheelRPM)}</div><span>Min RPM</span>
+                    <div className="RPMval">{display(data.maxWheelRPM)}</div><span>Max RPM</span>
                 </div>
             </div>
             <div className="voltage">
-                Battery Voltage Fluctuation:
+                Battery Voltage Fluctuation
                 <div className="linechart">
-                    
+                    <svg ref={linechart}></svg>
                 </div>
             </div>
         </div>
@@ -91,11 +136,16 @@ function App() {
 
     const [vin, setVin] = useState("Select Vehicle");
     const [tripId, setTripId] = useState("Select Trip");
+
+    let arr;
+    vin === "VEHICLE_UI" ? arr = vehicle1 : arr = vehicle2;
+    let i = arr.map(cur => cur.tripId).indexOf(tripId);
+    let data = arr[i];
     
     return (
         <div className="container">
             <Select vin={vin} setVin={setVin} tripId={tripId} setTripId={setTripId} />
-            <Data vin={vin} tripId={tripId} />
+            <Data vin={vin} tripId={tripId} data={data} />
         </div>
     )
 }
