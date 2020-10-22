@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/revos/static/css/main.5ab16813.chunk.css",
-    "main.js": "/revos/static/js/main.087f8b59.chunk.js",
-    "main.js.map": "/revos/static/js/main.087f8b59.chunk.js.map",
+    "main.css": "/revos/static/css/main.6e1a5cbb.chunk.css",
+    "main.js": "/revos/static/js/main.85aa42fd.chunk.js",
+    "main.js.map": "/revos/static/js/main.85aa42fd.chunk.js.map",
     "runtime-main.js": "/revos/static/js/runtime-main.9c0ed1a1.js",
     "runtime-main.js.map": "/revos/static/js/runtime-main.9c0ed1a1.js.map",
-    "static/js/2.6363ed8d.chunk.js": "/revos/static/js/2.6363ed8d.chunk.js",
-    "static/js/2.6363ed8d.chunk.js.map": "/revos/static/js/2.6363ed8d.chunk.js.map",
+    "static/js/2.2df24aa5.chunk.js": "/revos/static/js/2.2df24aa5.chunk.js",
+    "static/js/2.2df24aa5.chunk.js.map": "/revos/static/js/2.2df24aa5.chunk.js.map",
     "index.html": "/revos/index.html",
-    "precache-manifest.9ddc270b23b67b14b5e3f0a0fcff759e.js": "/revos/precache-manifest.9ddc270b23b67b14b5e3f0a0fcff759e.js",
+    "precache-manifest.d44dd3495a6ad175dde0e6dc217a0993.js": "/revos/precache-manifest.d44dd3495a6ad175dde0e6dc217a0993.js",
     "service-worker.js": "/revos/service-worker.js",
-    "static/css/main.5ab16813.chunk.css.map": "/revos/static/css/main.5ab16813.chunk.css.map",
-    "static/js/2.6363ed8d.chunk.js.LICENSE.txt": "/revos/static/js/2.6363ed8d.chunk.js.LICENSE.txt"
+    "static/css/main.6e1a5cbb.chunk.css.map": "/revos/static/css/main.6e1a5cbb.chunk.css.map",
+    "static/js/2.2df24aa5.chunk.js.LICENSE.txt": "/revos/static/js/2.2df24aa5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.9c0ed1a1.js",
-    "static/js/2.6363ed8d.chunk.js",
-    "static/css/main.5ab16813.chunk.css",
-    "static/js/main.087f8b59.chunk.js"
+    "static/js/2.2df24aa5.chunk.js",
+    "static/css/main.6e1a5cbb.chunk.css",
+    "static/js/main.85aa42fd.chunk.js"
   ]
 }
