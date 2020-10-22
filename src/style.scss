@@ -17,46 +17,65 @@ body {
 // }
 
 .container {
+    display: flex;
     .select {
+        position: relative;
         font-family: roboto mono;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
-        width: 100%;
-        padding: 20px 0;
+        grid-gap: 10px;
+        padding: 15px 0;
         background: #1b1b1b;
-        .flex-end {
-            justify-self: end;
+        min-width: 245px;
+        height: 100vh;
+        box-sizing: border-box;
+        div {
+            margin: 10px;
+            height: 40px;
         }
         label {
+            display: inline-block;
+            font-size: 15px;
+            box-sizing: border-box;
             height: 40px;
             background: #424242;
             color: #eeeeee;
             padding: 10px;
             border-radius: 5px 0 0 5px;
+            width: 80px;
         }
         select {
+            display: inline-block;
             height: 40px;
             border: none;
             padding: 10px;
             font-size: 16px;
             border-radius: 0 5px 5px 0;
+            width: 145px;
         }
     }
     .data {
+        display: grid;
+        grid-gap: 10px;
+        padding: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content min-content;
+        grid-template-areas: "a d"
+                             "b d"
+                             "c d";
+        justify-items: end;
         .main {
             display: flex;
             background: #1b1b1b;
-            margin: 10px;
             padding: 15px;
             border-radius: 5px;
-            width: min-content;
+            box-sizing: border-box;
+            justify-content: space-evenly;
+            width: 460px;
             cursor: default;
+            grid-area: a;
             .info {
                 display: grid;
                 grid-template-columns: auto;
                 grid-gap: 10px;
-                margin-right: 10px;
             }
             .pair {
                 display: flex;
@@ -64,6 +83,7 @@ body {
                 align-items: center;
                 background: #111111;
                 border-radius: 25px;
+                height: 50px;
 
                 .tooltip {
                     font-size: 15px;
@@ -131,14 +151,103 @@ body {
             }
         }
         .voltage {
+            grid-area: b;
             display: flex;
             flex-direction: column;
             align-items: center;
             background: #1b1b1b;
-            margin: 10px;
             padding: 15px;
             border-radius: 5px;
-            width: min-content;
+            width: 460px;
+            height: 283.2px;
+            box-sizing: border-box;
+        }
+        .mode {
+            grid-area: c;
+            width: 460px;
+            box-sizing: border-box;
+            background: #1b1b1b;
+            padding: 10px 30px;
+            border-radius: 5px;
+            .title {
+                text-align: center;
+                padding: 5px;
+            }
+            svg {
+                border-radius: 5px;
+            }
+            .modeSpec {
+                display: flex;
+                align-items: center;
+                margin: 10px;
+                .modeKey {
+                    display: flex;
+                    align-items: center;
+                    width: 100px;
+                    background: #2c2c2c;
+                    padding: 5px;
+                    border-radius: 5px 0 0 5px;
+                    i {
+                        margin-right: 5px;
+                    }
+                }
+                .economy {color: #4caf50;}
+                .ride {color: #2196f3;}
+                .sport {color: #f44336;}
+                .modeVal {
+                    background: #111111;
+                    border-radius: 0 5px 5px 0;
+                    height: 34px;
+                    padding: 5px;
+                    display: flex;
+                    align-items: center;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .other {
+            grid-area: d;
+            justify-self: start;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: min-content auto;
+            grid-gap: 10px;
+            width: auto;
+            .duration {
+                background: #1b1b1b;
+                padding: 10px;
+                border-radius: 5px;
+                justify-self: end;
+                height: min-content;
+                display: grid;
+                grid-gap: 10px;
+                .pair {
+                    display: flex;
+                    .key {
+                        background: #2c2c2c;
+                        padding: 10px;
+                        width: 40px;
+                        border-radius: 5px 0 0 5px;
+                        text-align: center;
+                    }
+                    .value {
+                        background: #111111;
+                        padding: 10px;
+                        border-radius: 0 5px 5px 0;
+                    }
+                }
+            }
+            .mapContainer {
+                width: 560px;
+                height: 500px;
+                background: #1b1b1b;
+                padding: 10px;
+                border-radius: 5px;
+                div#map {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
         }
     }
 }
